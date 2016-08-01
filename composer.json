@@ -1,0 +1,37 @@
+{
+  "name": "eslider/plantuml-proxy",
+  "description": "PlantUML proxy and documentation generator",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Andriy Oblivantsev",
+      "email": "eslider@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.3.3",
+    "composer/installers": "~1.0",
+    "slowprog/composer-copy-file": "^0.1.0"
+  },
+  "bin": [
+    "bin/plantuml",
+    "bin/plantuml.jar"
+  ],
+  "config": {
+    "bin-dir": "bin"
+  },
+  "autoload": {
+    "psr-4": {
+      "Eslider\\": "src/"
+    }
+  },
+  "extra": {
+    "copy-file": {
+      "vendor/eslider/web/pantuml-proxy.php": "web/pantuml-proxy.php"
+    }
+  },
+  "scripts": {
+    "post-package-update": "SlowProg\\CopyFile\\ScriptHandler::copy"
+  }
+}
